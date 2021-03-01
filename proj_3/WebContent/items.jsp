@@ -35,8 +35,11 @@
 	out.print(session.getAttribute("statusMsg"));
 	%>
 
-
 <br>
+<%
+ Item itemObj = new Item();
+ out.print(itemObj.readItems());
+%>
  
  
 </body>
