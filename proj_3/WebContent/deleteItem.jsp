@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Delete Item</title>
+<link rel="stylesheet" href="Views/bootstrap.min.css">
 </head>
 <body>
 
@@ -17,7 +18,9 @@
 <form method="post" action="deleteItem.jsp">
 			<h3>Confirm Item Deletion?</h3>
 			Item code: <input name="itemCode" type="text" value="<%=itemCode%>" readonly><br>
-			<input name="btnSubmit" type="submit" value="Delete">
+			<!-- <input name="btnSubmit" type="submit" value="Delete"> -->
+			<input name='btnRemove' type='submit' value='Remove'
+ class='btn btn-danger'>
 		</form>
 		
 		
