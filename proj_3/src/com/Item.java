@@ -188,4 +188,48 @@ public String deleteItem(Integer itemCode) {
 	
 	/*End of method*/
 
+
+/*update method*/
+
+public String updateItem(String itemCode, String itemName, String itemPrice, String itemDesc) 
+{
+	
+	String output = "";
+	
+	try {
+		
+		Connection con = connect();
+		
+		if (con == null)
+		{
+			return "Error while connecting to the database for reading.";
+		}
+		
+		
+					String sql = "update items set itemName=?, itemPrice=?, itemDesc=?" + "where itemCode=" + itemCode;
+					
+					PreparedStatement preparedStmt = con.prepareStatement(sql);
+					
+					
+					preparedStmt.setString(1, itemName);
+					preparedStmt.setDouble(2, Double.parseDouble(itemPrice));
+					preparedStmt.setString(3, itemDesc);
+					
+				
+					preparedStmt.execute();
+					con.close();
+					
+					output = "Updated successfully";
+		
+	}catch(Exception e) {
+		output = "Error while updating";
+		System.err.println(e.getMessage());
+	}
+	return output;
+	
+	
+}
+
+/*end of update method*/
+
 }
