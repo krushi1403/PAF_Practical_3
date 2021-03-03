@@ -159,5 +159,33 @@ public class Item {
 	/*end of method*/
 	
 	
+	/*Method to delete Items from the Database*/
+public String deleteItem(Integer itemCode) {
+		
+		String output = "";
+		
+		Connection con = connect();
+		
+		String sql = "delete from items " + "where itemId=" +itemCode ;
+		
+		try{
+			
+			PreparedStatement preparedStmt = con.prepareStatement(sql);
+
+		
+			preparedStmt.executeUpdate();
+			
+			output = "Deleted Successfully!!";
+		}
+		catch (Exception e) {
+			output = "Error while deleting";
+			e.printStackTrace();
+		}
+		
+		return output;
+	}
+	
+	
+	/*End of method*/
 
 }
